@@ -1,0 +1,12 @@
+[Unit]
+Description = MyJavaService
+After network.target = MyJavaService.service
+
+[Service]
+Type = forking
+ExecStart = /opt/apps/MyJavaService.sh start
+ExecStop = /opt/apps/MyJavaService.sh stop
+ExecReload = /opt/apps/MyJavaService.sh reload
+
+[Install]
+WantedBy=multi-user.target
