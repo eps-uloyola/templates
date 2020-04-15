@@ -2,7 +2,6 @@
 SERVICE_NAME=MyJavaService
 PATH_TO_JAR=/opt/apps/MyJarFile.jar
 PID_PATH_NAME=/tmp/MyJavaService-pid
-
 case $1 in
     start)
         echo "Starting $SERVICE_NAME ..."
