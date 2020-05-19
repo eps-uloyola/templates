@@ -10,7 +10,7 @@ WorkingDirectory=/opt/apps/
 Type = forking
 ExecStart = /opt/apps/MyJavaService.sh start
 ExecStop = /opt/apps/MyJavaService.sh stop
-ExecReload = /opt/apps/MyJavaService.sh reload
+ExecReload = /opt/apps/MyJavaService.sh restart
 
 Restart=on-failure
 RestartSec=5
