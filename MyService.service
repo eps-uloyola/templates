@@ -12,6 +12,8 @@ ExecStart = /opt/apps/MyJavaService.sh start
 ExecStop = /opt/apps/MyJavaService.sh stop
 ExecReload = /opt/apps/MyJavaService.sh restart
 
+SuccessExitStatus=143
+TimeoutStopSec=10
 Restart=on-failure
 RestartSec=5
 
