@@ -2,11 +2,18 @@
 Description = MyJavaService
 After network.target = MyJavaService.service
 
+
+#change this to your workspace
+WorkingDirectory=/opt/apps/
+
 [Service]
 Type = forking
 ExecStart = /opt/apps/MyJavaService.sh start
 ExecStop = /opt/apps/MyJavaService.sh stop
 ExecReload = /opt/apps/MyJavaService.sh reload
+
+Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
