@@ -6,7 +6,7 @@ case $1 in
     start)
         echo "Starting $SERVICE_NAME ..."
         if [ ! -f $PID_PATH_NAME ]; then
-            nohup java -jar MyJavaOPS $PATH_TO_JAR  &
+            sudo nohup java -jar MyJavaOPS $PATH_TO_JAR  &
                         echo $! > $PID_PATH_NAME
             echo "$SERVICE_NAME started ..."
         else
@@ -17,9 +17,9 @@ case $1 in
         if [ -f $PID_PATH_NAME ]; then
             PID=$(cat $PID_PATH_NAME);
             echo "$SERVICE_NAME stoping ..."
-            kill $PID;
+            sudo kill $PID;
             echo "$SERVICE_NAME stopped ..."
-            rm $PID_PATH_NAME
+            sudo rm $PID_PATH_NAME
         else
             echo "$SERVICE_NAME is not running ..."
         fi
@@ -28,11 +28,11 @@ case $1 in
         if [ -f $PID_PATH_NAME ]; then
             PID=$(cat $PID_PATH_NAME);
             echo "$SERVICE_NAME stopping ...";
-            kill $PID;
+            sudo kill $PID;
             echo "$SERVICE_NAME stopped ...";
-            rm $PID_PATH_NAME
+            sudo rm $PID_PATH_NAME
             echo "$SERVICE_NAME starting ..."
-            nohup java -jar $PATH_TO_JAR  &
+            sudo nohup java -jar MyJavaOPS  $PATH_TO_JAR  &
                         echo $! > $PID_PATH_NAME
             echo "$SERVICE_NAME started ..."
         else
